@@ -1,0 +1,29 @@
+”º”¿ﬁ÷ GikoPos("category<>", Data) > 0 ¿ﬁØ¿◊ ≤Ø√÷º ParseCategory
+”º”¿ﬁ÷ GikoPos("SITE_TOP<>", Data) >0 ¿ﬁØ¿◊ ≤Ø√÷º ExitProc
+”º”¿ﬁ÷ GikoPos("http://", Data) > 0 ¿ﬁØ¿◊ ≤Ø√÷º ParseBoard
+≤Ø√÷º ExitProc
+
+“ºﬁŸº ParseCategory
+  S = GikoCopy(Data, 11, GikoLen(Data))
+  CategoryName = GikoTrim(S)
+  ≤Ø√÷º ExitProc
+
+“ºﬁŸº ParseBoard
+  S = GikoCopy(Data, GikoPos(">", Data) + 1, GikoLen(Data))
+  BoardName = GikoTrim(S)
+  S = GikoCopy(Data, 1,GikoPos("<", Data) - 1)
+  BoardURL = S
+
+  “ºﬁŸº LoopProc
+    m = GikoPos("/", S)
+    ”º”¿ﬁ÷ m = GikoLen(S) ¿ﬁØ¿◊ ≤Ø√÷º LoopEnd
+    ”º”¿ﬁ÷ m = 0 ¿ﬁØ¿◊ ≤Ø√÷º LoopEnd
+    S = GikoCopy(S, m + 1, GikoLen(S))
+    ≤Ø√÷º LoopProc
+  “ºﬁŸº LoopEnd
+    BoardID = GikoCopy(S, 1, GikoLen(S) - 1)
+    ParseOk = OK
+    ≤Ø√÷º ExitProc
+
+“ºﬁŸº ExitProc
+º»

@@ -1,0 +1,28 @@
+@media screen and (min-width: 481px){
+    .flexbox {
+	display: flex;
+	flex-direction: row;
+	padding: 10px;
+
+    }
+}
+@media screen and (max-width: 480px){ /* スマホ用 */
+    .flexbox {
+	display: flex;
+	flex-direction: column-reverse;
+	padding: 10px;
+    }
+}
+.boardlist, .searchform {
+    border: 1px solid #999;
+    padding: 10px;
+}
+
+.searchresult {
+    padding: 1em;
+}
+
+.searchmessage {
+    margin-left: 2em;
+}
+

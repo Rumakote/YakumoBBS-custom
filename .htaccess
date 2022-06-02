@@ -1,0 +1,5 @@
+AddType text/plain .dat
+
+<FilesMatch "\.html$">
+Header set Content-Type 'text/html; charset=shift-jis'
+</FilesMatch>
