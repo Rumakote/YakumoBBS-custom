@@ -31,7 +31,7 @@ cron設定機能（現バージョンでは使いません）
 ・このプログラムより
 CGI
 LWP::UserAgent
-JSON::Parse
+JSON::Parse（これのインストールがやや難しいので、できなかったらsubフォルダのwrite.plの4行目をコメントアウトしてください。captcha機能は使えなくなりますが...）
 
 
 
