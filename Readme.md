@@ -3,3 +3,5 @@
 私が長々と説明するより、こちら http://yakumotatu.com/yakumobbs/ を見ていただいた方が分かりやすいと思います。
 
 よろしくお願いします。
+
+サンプルは https://kusaimara.com/vtuber/ で動かしています。
