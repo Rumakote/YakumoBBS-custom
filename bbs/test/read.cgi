@@ -164,6 +164,7 @@ sub get_setting {
 	$site_key = $setting{'SITE_KEY'};
 	$secret_key = ($setting{'SECRET_KEY'} ne '' ? 1 : 0);
 	$h_secret_key = ($setting{'H_SECRET_KEY'} ne '' ? 1 : 0);
+	$picture_preview = ($setting{'PICTURE_PREVIEW'} eq 'checked' ? 1 : 0);
 	$youtube_preview = ($setting{'YOUTUBE_PREVIEW'} eq 'checked' ? 1 : 0);
 }
 
@@ -202,6 +203,34 @@ sub view {
 
 $text = $$message;
 
+#画像プレビュー
+if($picture_preview){
+
+	#１行ずつ文章を分割
+	my @strtext = split(/<br>/, $text);
+
+	# URLを抽出するための正規表現
+	@patterns = (
+	'https?\:\/\/[\-_\.\!\~\*\'\(\)a-zA-Z0-9\;\/\?\:\@\&\=\+\$\,\%\#]+(.*?(jpg|jpeg|gif|png|bmp))',
+	);
+
+	foreach my $text (@strtext) {
+		# 正規表現にマッチしたURLを出力する
+		foreach my $pattern (@patterns){
+			while ($text =~ /$pattern/gp) {
+			print "\n";
+			print "<p></p>\n";
+
+			print '<dd><div class="img_preview"><img src=';
+			print "${^MATCH}"."    ";
+			print '></div></dd>'."\n\n";
+			}
+		print "\n";
+		}
+	}
+}
+
+#Youtube動画プレビュー
 if($youtube_preview){
 
 	#１行ずつ文章を分割

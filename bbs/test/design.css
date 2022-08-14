@@ -7,6 +7,17 @@ iframe {
   max-width : 95%;
 }
 
+.img_preview {
+  cursor : pointer;
+}
+
+.img_preview img {
+  width : 320px;
+
+  max-width : 95%;
+  border-radius : 3px;
+}
+
 .youtube {
   cursor : pointer;
 }
