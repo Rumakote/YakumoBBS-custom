@@ -164,6 +164,7 @@ sub get_setting {
 	$site_key = $setting{'SITE_KEY'};
 	$secret_key = ($setting{'SECRET_KEY'} ne '' ? 1 : 0);
 	$h_secret_key = ($setting{'H_SECRET_KEY'} ne '' ? 1 : 0);
+	$sns_share = ($setting{'SNS_SHARE'} eq 'checked' ? 1 : 0);
 	$picture_preview = ($setting{'PICTURE_PREVIEW'} eq 'checked' ? 1 : 0);
 	$youtube_preview = ($setting{'YOUTUBE_PREVIEW'} eq 'checked' ? 1 : 0);
 }
@@ -291,6 +292,9 @@ sub header{
 	print "textarea {width:80%;}\n";
 	print "-->\n</style>\n";
 
+	#CSS読み込み
+	print '<link rel="stylesheet" href="../test/design.css">';
+
 	#headerタグ
 	open(FH, "$dir/$bbs/header.txt");
 		while ($header = <FH>) {
@@ -318,7 +322,6 @@ sub header{
 	if($youtube_preview){
 	print '<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>';
 	print '<script src="../test/youtube.js"></script>';
-	print '<link rel="stylesheet" href="../test/design.css">';
 	}
 
 	my $banner = '';
@@ -372,6 +375,44 @@ sub footer{
 	my $fname = "../test/read.cgi/$bbs/$key";
 	$count = $start + $count;
 	print "</dl>\n";
+
+if($sns_share){
+# シェアボタン
+# http://stooorm.com/memo/2020/10/16/post-342/
+print '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>';
+
+print '<div id="share">';
+print '<ul>';
+
+print '<!-- Facebook -->';
+print '<li class="share-facebook">';
+print '<div><a href="javascript:window.open(';
+print "'http://www.facebook.com/sharer.php?u='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');";
+print '">Facebook</a></div>';
+print '</li>';
+
+print '<!-- Twitter -->';
+print '<li class="share-twitter">';
+print '<div><a href="javascript:window.open(';
+print "'http://twitter.com/share?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!')";
+print '">Twitter</a></div>';
+print '</li>';
+
+print '<!-- LINE -->';
+print '<li class="share-line">';
+print '<div><a href="javascript:window.open(';
+print "'http://line.me/R/msg/text/?'+encodeURIComponent(document.title)+'%20'+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!')";
+print '">LINE</a></div>';
+print '</li>';
+
+print '</ul>';
+print '</div>';
+
+print "<br>\n";
+print "<br>\n";
+print "<br>\n";
+}
+
 	my $banner = '';
 	if ($term) {$banner = read_file("../$board/s/banner2.txt");}
 	unless(trim($banner)) {$banner = read_file("../$board/banner2.txt");}

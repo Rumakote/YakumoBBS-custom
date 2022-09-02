@@ -4,4 +4,8 @@
 
 よろしくお願いします。
 
-サンプルは https://kusaimara.com/vtuber/ で動かしています。
+何かご意見やバグ報告等がありましたら
+https://kusaimara.com/ 
+もしくは
+https://twitter.com/Kusai_Mara
+でコメントをください。
