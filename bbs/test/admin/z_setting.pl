@@ -156,7 +156,7 @@ sub info_setting {
 	'SECRET_KEY<>ReCaptchaのシークレットキー（空欄で無効）<>2',
 	'H_SECRET_KEY<>hCaptchaのシークレットキー（空欄で無効）<>2',
 	'SNS_SHARE<>Facebook・Twitter・LINEでのシェアボタンの表示<>0<><>checked',
-	'PICTURE_PREVIEW<>Imgerなどの画像URLのプレビュー表示<>0<><>checked',
+	'PICTURE_PREVIEW<>Imgurなどの画像URLのプレビュー表示<>0<><>checked',
 	'YOUTUBE_PREVIEW<>Youtubeの動画URLのプレビュー表示<>0<><>checked',
 	);
 	return(@set_info);

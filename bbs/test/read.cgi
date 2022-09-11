@@ -188,6 +188,12 @@ sub view {
 	} else {
 		$$message .= '<br>';
 	}
+
+	#画像プレビュー用のメッセージ aタグなし
+	if($picture_preview){
+	$pic_preview = $$message;
+	}
+
 	if ($ifo{'jump'}) {
 		my $h = 'h';
 		my $jump = '../test/j.cgi?jmp=';
@@ -204,11 +210,12 @@ sub view {
 
 $text = $$message;
 
+
 #画像プレビュー
 if($picture_preview){
 
 	#１行ずつ文章を分割
-	my @strtext = split(/<br>/, $text);
+	my @strtext = split(/<br>/, $pic_preview);
 
 	# URLを抽出するための正規表現
 	@patterns = (
