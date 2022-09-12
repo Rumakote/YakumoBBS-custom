@@ -219,7 +219,7 @@ if($picture_preview){
 
 	# URLを抽出するための正規表現
 	@patterns = (
-	'https?\:\/\/[\-_\.\!\~\*\'\(\)a-zA-Z0-9\;\/\?\:\@\&\=\+\$\,\%\#]+(.*?(jpg|jpeg|gif|png|bmp))',
+	'https?:\/\/[a-zA-Z0-9-_.~\/?:&=%+#]+\.(jpg|jpeg|gif|png|bmp)',
 	);
 
 	foreach my $text (@strtext) {
