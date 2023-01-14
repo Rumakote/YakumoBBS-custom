@@ -7,7 +7,10 @@ sub get_data {
 	($info) = get_datetime();
 	$info_er = $info;
 	$agent =$ENV{'HTTP_USER_AGENT'};	#環境変数取得
-	$remote_addr = $ENV{'REMOTE_ADDR'};
+
+	# https://github.com/PrefKarafuto/New_0ch_Plus/blob/main/test/module/peregrin.pl
+	# を参考にCloudFlare対応にしてみた。
+	$remote_addr = (($ENV{HTTP_CF_CONNECTING_IP}) ? $ENV{HTTP_CF_CONNECTING_IP} : $ENV{REMOTE_ADDR});
 	if ($remote_addr eq '::1' || $remote_addr eq '127.0.0.1') {
 		$remote_addr = '127.0.0.1';
 		$remote_host = 'localhost';
