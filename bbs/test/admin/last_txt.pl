@@ -16,7 +16,7 @@ sub last_ed {
 	header("$bbs 終了レス編集");
 	show_last_txt("../$bbs/last.txt");
 	print $cmd_str;
-	print "<input type='hidden' name='opt' value='last_exe'>\n";	
+	print "<input type='hidden' name='opt' value='last_exe'>\n";
 }
 
 sub last_exe {

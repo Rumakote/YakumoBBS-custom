@@ -443,9 +443,9 @@ print "<br>\n";
 	print " <a href=\"$fname/l50\">",enc_str('最新50'),"</a>\n";
 	if ($mode) {
 		print '<form method=POST action="../test/bbs.cgi?guid=ON"'.($img_mode ? ' ENCTYPE="multipart/form-data">' : '>')."\n";
-		print enc_str("<input type=submit value=\"書き込む\" name=submit>\n");
+		print enc_str("<input type=submit value=\"書き込む\" name=submit><br class=\"smartphone\">\n");
 		print enc_str("名前： <input name=FROM size=19").$c_name.">\n";
-		print enc_str(" E-mail<font size=1> (省略可) </font>: <input name=mail size=19").$c_mail."><br>\n";
+		print enc_str("<br class=\"smartphone\">E-mail<font size=1> (省略可) </font>: <input name=mail size=19").$c_mail."><br>\n";
 		if ($img_mode) {
 			print enc_str('画像：<input type ="file" name ="file" size="60" style="width:50%;"><br>')."\n";
 		}

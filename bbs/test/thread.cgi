@@ -35,6 +35,7 @@ sub main {
 	print '<script src="https://www.hCaptcha.com/1/api.js" async defer></script>';
 	}
 
+	print '<link rel="stylesheet" href="design.css">',"\n";
 	print '<meta http-equiv="Content-Type" content="text/html; charset=',$ifo{'outchr'},"\">\n";
 	print '<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">',"\n";
 	print '<title>',$setting{'TITLE'},"</title>\n";
@@ -57,10 +58,10 @@ sub main {
 	print "<tr><td colspan=2>$file\n";
 	print enc_str("<dl><dt><br><b>スレッド新規作成</b></dt>\n");
 	print "<form method=POST action=\"../test/bbs.cgi?guid=ON\" style=\"margin:0px;\"".($setting{'IMG_MODE'} eq 'checked' ? ' ENCTYPE="multipart/form-data">' : '>')."\n";
-	print enc_str("<dd>タイトル：<input type=\"text\" name=\"subject\" size=30>　");
-	print enc_str("<input type=submit value=\"新規スレッド作成\" name=submit><br>\n");
+	print enc_str("<dd><div class = \"reverse_order\"><span class = \"order2\">タイトル：<br class=\"smartphone\"><input type=\"text\" name=\"subject\" size=30></span>");
+	print enc_str("<span class = \"order1\"><input type=submit value=\"新規スレッド作成\" name=submit></span></div>\n");
 	print enc_str("名前： <input type=\"text\" name=FROM size=19"),"$name>\n";
-	print enc_str(" E-mail<font size=1> (省略可) </font>: <input type=\"text\" name=mail size=19"),"$mail><br>\n";
+	print enc_str("<br class=\"smartphone\">E-mail<font size=1> (省略可) </font>: <input type=\"text\" name=mail size=19"),"$mail><br>\n";
 	if ($setting{'IMG_MODE'} eq 'checked') {
 		print enc_str('画像：<input type ="file" name ="file" size="80" style="width:50%;"><br>')."\n";
 	}

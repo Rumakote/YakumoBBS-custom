@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/perl --
 
 use utf8;
 use LWP::Simple;
@@ -99,6 +99,10 @@ sub main_cgi {
 		}
 		print "<title>jump</title>\n";
 		print '<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">',"\n";
+
+	#reCaptcha
+	print '<script src="https://www.google.com/recaptcha/api.js"></script>';
+
 		print "</head>\n";
 		print "<body>\n";
 		print $text1;

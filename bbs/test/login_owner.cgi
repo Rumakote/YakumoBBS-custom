@@ -1,6 +1,8 @@
 #!/usr/bin/perl --
 
 use utf8;
+use CGI::Carp qw(fatalsToBrowser warningsToBrowser);
+
 $admcmd = './admin';		#コマンドファイルのディレクトリ
 $subcmd = './sub';		#サブルーチンのディレクトリ
 $call = 'owner';

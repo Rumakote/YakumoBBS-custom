@@ -91,7 +91,7 @@ sub put_pc {
 	print WR "link=$setting{'LINK_COLOR'} alink=$setting{'ALINK_COLOR'} vlink=$setting{'VLINK_COLOR'} ";
 
 	#">"を追加して背景を表示できるように
-	print WR "background=$setting{'BG_PICTURE'}>";
+	print WR "background=$setting{'BG_PICTURE'}".'>';
 	if ($ifo{'dir'}) {print WR " onload=\"page()";}
 	print WR "\n<center>\n";
 	if ($setting{'TITLE_PICTURE'} ne '') {
@@ -171,8 +171,8 @@ sub put_pc {
 		}
 		print WR "<dd><form method=POST action=\"../test/bbs.cgi?guid=ON\" style=\"margin:0px;\"";
 		print WR ($setting{'IMG_MODE'} eq 'checked' ? ' ENCTYPE="multipart/form-data">' : '>')."\n";
-		print WR enc_str("<input type=submit value=\"書き込む\" name=submit>\n");
-		print WR enc_str("名前： <input name=FROM size=19>\n");
+		print WR enc_str("<input type=submit value=\"書き込む\" name=submit><br class=\"smartphone\">\n");
+		print WR enc_str("名前： <input name=FROM size=19><br class=\"smartphone\">\n");
 		print WR enc_str(" E-mail<font size=1> (省略可) </font>: <input name=mail size=19><br>\n");
 		if ($setting{'IMG_MODE'} eq 'checked') {
 			print WR enc_str('画像：<input type ="file" name ="file" size="88" style="width:50%;"><br>')."\n";
