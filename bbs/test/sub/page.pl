@@ -45,6 +45,7 @@ sub put_pc {
 	print WR "dl {style=font-size:16px;line-height:18px;}\n";
 	print WR "textarea {width:80%;}\n";
 	print WR "-->\n</style>\n";
+	print WR '<link rel="stylesheet" href="../test/design.css">';
 
 	#headerタグ
 	open(FH, "$dir/$bbs/header.txt");
@@ -309,6 +310,7 @@ sub put_subback {
 	print WR "<style type='text/css'>\n<!--\n";
 	print WR "body {word-break:break-all;}\n";
 	print WR "-->\n</style>\n";
+	print WR '<link rel="stylesheet" href="../test/design.css">';
 	print WR '<title>',$setting{'TITLE'},enc_str('＠スレッド一覧'),"</title>\n";
 	print WR "<body bgcolor=$setting{'BG_COLOR'} text=$setting{'TEXT_COLOR'} ";
 	print WR "link=$setting{'LINK_COLOR'} alink=$setting{'ALINK_COLOR'} vlink=$setting{'VLINK_COLOR'}>";
